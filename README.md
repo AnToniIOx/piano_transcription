@@ -1,5 +1,5 @@
 
-# Piano transcription
+# Piano Transcription from Scratch
 
 Piano transcription is the task of transcribing piano recordings into MIDI files. This repo is the PyTorch implementation of our proposed high-resolution piano transcription system [1].
 
@@ -45,16 +45,16 @@ transcribed_dict = transcriptor.transcribe(audio, 'cut_liszt.mid')
 This section provides instructions if users would like to train a piano transcription system from scratch.
 
 ### 0. Prepare data
-We use MAESTRO dataset V2.0.0 [1] to train the piano transcription system. MAESTRO consists of over 200 hours of virtuosic piano performances captured with fine alignment (~3 ms) between note labels and audio waveforms. MAESTRO dataset can be downloaded from https://magenta.tensorflow.org/datasets/maestro.
+We use MAESTRO dataset V3.0.0 [1] to train the piano transcription system. MAESTRO consists of over 200 hours of virtuosic piano performances captured with fine alignment (~3 ms) between note labels and audio waveforms. MAESTRO dataset can be downloaded from https://magenta.tensorflow.org/datasets/maestro.
 
-Statistics of MAESTRO V2.0.0 [[ref]](https://magenta.tensorflow.org/datasets/maestro#v200):
+Statistics of MAESTRO V3.0.0 [[ref]](https://magenta.tensorflow.org/datasets/maestro#v300):
 
 | Split      | Performances | Duration (hours) | Size (GB) | Notes (millions) |
 |------------|--------------|------------------|-----------|------------------|
-| Train      |          967 |            161.3 |      97.7 |             5.73 |
+| Train      |          962 |            159.2 |      96.3 |             5.66 |
 | Validation |          137 |             19.4 |      11.8 |             0.64 |
-| Test       |          178 |             20.5 |      12.4 |             0.76 |
-| **Total**  |      **1282**|         **201.2**|  **121.8**|          **7.13**|
+| Test       |          177 |             20.0 |      12.1 |             0.74 |
+| **Total**  |      **1276**|         **198.7**|  **120.2**|          **7.04**|
 
 After downloading, the dataset looks like:
 
@@ -79,10 +79,10 @@ dataset_root
 ├── 2017
 │    └── (280 files)
 ├── 2018
-│    └── (198 files)
+│    └── (186 files)
 ├── LICENSE
-├── maestro-v2.0.0.csv
-├── maestro-v2.0.0.json
+├── maestro-v3.0.0.csv
+├── maestro-v3.0.0.json
 └── README
 </pre>
 
@@ -96,6 +96,7 @@ Execute the commands line by line in runme.sh, including:
 4) Train piano pedal transcription system.
 5) Combine piano note and piano pedal transcription systems.
 6) Evaluate.
+***NOTE：Using MAESTRO dataset V3.0.0 needs to modify features.py
 
 All training steps are described in runme.sh. It worth looking into runme.sh to see how the piano transcription system is trained. In total 29 GB GPU memoroy is required with a batch size of 12. Users may consider to reduce the batch size, or use multiple GPU cards to train this system.
 
