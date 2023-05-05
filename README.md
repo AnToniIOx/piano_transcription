@@ -3,7 +3,6 @@
 
 Piano transcription is the task of transcribing piano recordings into MIDI files. This repo is the PyTorch implementation of our proposed high-resolution piano transcription system [1].
 
-<a href="https://replicate.com/replicate/piano-transcription"><img src="https://replicate.com/replicate/piano-transcription/badge"></a>
 
 ## Demos
 Here is a demo of our piano transcription system: https://www.youtube.com/watch?v=5U-WL0QvKCg
